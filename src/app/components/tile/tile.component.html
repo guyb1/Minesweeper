@@ -1,8 +1,38 @@
-<div class="tile" [class.backg]="isMine(tile)">
-  <div *ngIf="tile.isRevealed">
+<!--[class.backg]="isMine(tile)"-->
+
+
+<!--<div class="tile">-->
+  <!--<button md-icon-button>-->
+    <!--<div *ngIf="tile.isRevealed && !isMine()">-->
+      <!--{{tile.value()}}-->
+    <!--</div>-->
+    <!--<div *ngIf="tile.isRevealed && isMine()">-->
+      <!--<md-icon svgIcon="mine"></md-icon>-->
+    <!--</div>-->
+    <!--<div *ngIf="!tile.isRevealed && tile.isFlagged">-->
+      <!--<md-icon svgIcon="flag"></md-icon>-->
+    <!--</div>-->
+  <!--</button>-->
+<!--</div>-->
+
+<div class="tile">
+  <div *ngIf="tile.isRevealed && !isMine()">
     {{tile.value()}}
   </div>
+  <div *ngIf="tile.isRevealed && isMine()">
+    <md-icon svgIcon="mine"></md-icon>
+  </div>
   <div *ngIf="!tile.isRevealed && tile.isFlagged">
-    ?
+    <md-icon svgIcon="flag"></md-icon>
   </div>
 </div>
+
+
+<!--<div class="tile">-->
+  <!--<div *ngIf="tile.isRevealed">-->
+    <!--{{tile.value()}}-->
+  <!--</div>-->
+  <!--<div *ngIf="!tile.isRevealed && tile.isFlagged">-->
+    <!--?-->
+  <!--</div>-->
+<!--</div>-->

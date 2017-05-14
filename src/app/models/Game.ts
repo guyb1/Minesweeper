@@ -30,12 +30,13 @@ export class Game{
   }
 
   public chooseTile(tile: Tile){
-    // Checks that the game is still on
-    if(this.isGameOver)
+    // Checks that the game is still on or the tile is not flagged
+    if(this.isGameOver || tile.isFlagged)
       return;
 
     if(tile instanceof Mine){
       this.isGameOver = true;
+      tile.isRevealed = true;
       alert('Game Over');
     }
 

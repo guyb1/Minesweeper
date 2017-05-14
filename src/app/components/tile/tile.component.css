@@ -2,10 +2,26 @@
   width: 40px;
   height: 40px;
   margin: 1px;
-  background-color: burlywood;
+  background-color: lightblue;
   float:left;
+  line-height: 40px;
+  text-align: center;
+  display: block;
+  color: rgb(84, 84, 84);
 }
 
-.backg{
-  background-color: red;
+/*.backg{*/
+  /*background-color: red;*/
+/*}*/
+
+.mat-icon-button .mat-icon{
+  line-height: 50px;
+  color: rgb(84, 84, 84);
+}
+
+.mat-icon-button, .tile{
+  font-family:"arial";
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(84, 84, 84);
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Tile} from "../../models/Tile";
 import {Mine} from "../../models/Mine";
+import {MdIconRegistry} from "@angular/material";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-tile',
@@ -10,13 +12,20 @@ import {Mine} from "../../models/Mine";
 export class TileComponent implements OnInit {
   @Input() tile: Tile;
 
-  constructor() { }
+  constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'mine',
+      sanitizer.bypassSecurityTrustResourceUrl('./assets/emoticon-poop.svg'));
+    iconRegistry.addSvgIcon(
+      'flag',
+      sanitizer.bypassSecurityTrustResourceUrl('./assets/bomb.svg'));
+  }
 
   ngOnInit() {
   }
 
-  isMine(tile:Tile){
-    return tile instanceof Mine;
+  isMine(){
+    return this.tile instanceof Mine;
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Game} from "./models/Game";
+import {MdDialog} from "@angular/material";
+import {MinesweeperComponent} from "./components/minesweeper/minesweeper.component";
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,18 @@ import {Game} from "./models/Game";
 export class AppComponent {
   //title = 'app works!';
   public game: Game;
+  public dialog: MdDialog;
 
-  constructor(){
-    this.game = new Game(300, 300, 5);
+  constructor(dialog: MdDialog){
+    this.dialog = dialog;
+  }
+
+  startClick(){
+    this.game = new Game(15, 15, 5);
     this.game.start();
 
-    // setTimeout(function() {
-    //   this.game = new Game(300, 300, 6);
-    //   this.game.initialize();
-    // }.bind(this), 1000);
+    var diagRef = this.dialog.open(MinesweeperComponent,{height: '400px',
+      width: '600px'});
+    diagRef.componentInstance.game = this.game;
   }
 }

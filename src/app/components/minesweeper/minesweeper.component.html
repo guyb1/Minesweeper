@@ -1,3 +1,17 @@
 <div class="board">
   <app-row *ngFor="let row of game.board.getRows()" [row]="row" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>
 </div>
+
+
+
+
+
+
+<!--<div class="board">-->
+  <!--<div class="row" *ngFor="let row of game.board.getRows()">-->
+    <!--<app-tile *ngFor="let tile of row"-->
+              <!--[tile]="tile"-->
+              <!--(click)="handleTileClick($event, tile)"></app-tile>-->
+  <!--</div>-->
+  <!--&lt;!&ndash;<app-row *ngFor="let row of game.board.getRows()" [row]="row" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>&ndash;&gt;-->
+<!--</div>-->
