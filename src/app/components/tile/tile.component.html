@@ -1,0 +1,8 @@
+<div class="tile" [class.backg]="isMine(tile)">
+  <div *ngIf="tile.isRevealed">
+    {{tile.value()}}
+  </div>
+  <div *ngIf="!tile.isRevealed && tile.isFlagged">
+    ?
+  </div>
+</div>
