@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges, AfterViewChecked} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChanges, AfterViewChecked, AfterContentInit} from '@angular/core';
 import {Game} from "../../models/Game";
 
 @Component({
@@ -6,7 +6,8 @@ import {Game} from "../../models/Game";
   templateUrl: './minesweeper.component.html',
   styleUrls: ['./minesweeper.component.css']
 })
-export class MinesweeperComponent implements OnInit, OnChanges, AfterViewChecked  {
+export class MinesweeperComponent implements OnInit, OnChanges, AfterViewChecked, AfterContentInit  {
+
   @Input() game: Game;
 
   constructor() {
@@ -21,6 +22,11 @@ export class MinesweeperComponent implements OnInit, OnChanges, AfterViewChecked
 
   ngAfterViewChecked(): void {
     // stop spinner
+
+  }
+
+  ngAfterContentInit(): void {
+    // alert('b');
   }
 
   handleTileClick(tile){

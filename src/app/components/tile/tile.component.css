@@ -10,6 +10,10 @@
   color: rgb(84, 84, 84);
 }
 
+.tile:hover{
+  background-color: lightgray;
+}
+
 /*.backg{*/
   /*background-color: red;*/
 /*}*/

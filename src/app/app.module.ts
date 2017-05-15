@@ -7,7 +7,10 @@ import { TileComponent } from './components/tile/tile.component';
 import { RowComponent } from './components/row/row.component';
 import { MinesweeperComponent } from './components/minesweeper/minesweeper.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdIconModule, MdDialogModule} from "@angular/material";
+import {
+  MdButtonModule, MdIconModule, MdDialogModule, MdInputModule, MdListModule,
+  MdCheckboxModule
+} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import {MdButtonModule, MdIconModule, MdDialogModule} from "@angular/material";
     BrowserAnimationsModule,
     MdButtonModule,
     MdIconModule,
-    MdDialogModule
+    MdDialogModule,
+    MdInputModule,
+    MdListModule,
+    MdCheckboxModule
   ],
   providers: [],
   entryComponents: [MinesweeperComponent],

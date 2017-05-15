@@ -1,4 +1,29 @@
-<button md-button (click)="startClick()">Flat button</button>
+<div>
+  {{diagRef?.componentInstance?.game?.flags}}
+</div>
+
+<form class="form">
+  <md-input-container class="full-width">
+    <input #width mdInput type="number" max="300" min="1" placeholder="Width" >
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input #height mdInput type="number" max="300" min="1" placeholder="height" >
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input #mines mdInput type="number" max="300" min="1" placeholder="Mines" >
+  </md-input-container>
+
+  <section class="section">
+    <md-checkbox #superman>
+      Superman
+    </md-checkbox>
+  </section>
+  <section class="section">
+    <button md-raised-button (click)="startClick(width.value, height.value, mines.value, superman._checked)" class="start-button">Start</button>
+  </section>
+</form>
+
+
 
 <!--<div class="game-container">-->
 <!--<app-minesweeper [game]="game"></app-minesweeper>-->

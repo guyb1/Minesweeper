@@ -12,17 +12,18 @@ export class AppComponent {
   //title = 'app works!';
   public game: Game;
   public dialog: MdDialog;
+  public diagRef;
 
   constructor(dialog: MdDialog){
     this.dialog = dialog;
   }
 
-  startClick(){
-    this.game = new Game(15, 15, 5);
+  startClick(width: number, height: number, mines: number, superman: boolean){
+    this.game = new Game(width, height, mines);
     this.game.start();
 
-    var diagRef = this.dialog.open(MinesweeperComponent,{height: '400px',
-      width: '600px'});
-    diagRef.componentInstance.game = this.game;
+    this.diagRef = this.dialog.open(MinesweeperComponent, {height: '80%', width: '80%'});
+  // ,{height: '400px', width: '600px'}
+    this.diagRef.componentInstance.game = this.game;
   }
 }
