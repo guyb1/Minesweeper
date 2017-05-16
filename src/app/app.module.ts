@@ -9,15 +9,17 @@ import { MinesweeperComponent } from './components/minesweeper/minesweeper.compo
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MdButtonModule, MdIconModule, MdDialogModule, MdInputModule, MdListModule,
-  MdCheckboxModule, MdCardModule
+  MdCheckboxModule, MdCardModule, MdGridListModule
 } from "@angular/material";
+import { ConfigComponent } from './components/config/config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TileComponent,
     RowComponent,
-    MinesweeperComponent
+    MinesweeperComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +32,11 @@ import {
     MdInputModule,
     MdListModule,
     MdCheckboxModule,
-    MdCardModule
+    MdCardModule,
+    MdGridListModule
   ],
   providers: [],
-  entryComponents: [MinesweeperComponent],
+  entryComponents: [ConfigComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,7 @@
 <!--</div>-->
 
 <div class="tile" [class.revealed-tile]="tile.isRevealed" [class.superman-tile]="globalParams.isSuperman">
-  <div *ngIf="tile.isRevealed && !isMine()">
+  <div *ngIf="tile?.isRevealed && !isMine()">
     {{tile.value()}}
   </div>
   <div *ngIf="(tile.isRevealed || globalParams.isSuperman) && isMine() && !tile.isFlagged">

@@ -20,15 +20,20 @@ export class Game{
     this.width = width;
     this.height = height;
     this. mines = mines;
-    this.flags = mines;
-    this.isGameOver = false;
-    this.minesRevealed = 0;
     this.isSuperman = superman;
+
     this.board = null;
   }
 
   public start() {
+    this.isGameOver = false;
+    this.minesRevealed = 0;
+    this.flags = this.mines;
     this.board = new GameBoard(this.width, this.height, this.mines);
+  }
+
+  public stop(){
+    this.isGameOver = true;
   }
 
   public chooseTile(tile: Tile){

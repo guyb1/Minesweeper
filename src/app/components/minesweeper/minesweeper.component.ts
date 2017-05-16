@@ -11,11 +11,12 @@ import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
   styleUrls: ['./minesweeper.component.css']
 })
 export class MinesweeperComponent implements OnInit, OnChanges, AfterViewChecked, AfterContentInit  {
-  // @Input() game: Game;
-  public game: Game;
+  @Input() game: Game;
+  // public game: Game;
 
-  constructor(public dialogRef: MdDialogRef<any>, @Inject(MD_DIALOG_DATA) public data: any) {
-    this.game = data.game;
+  // constructor(public dialogRef: MdDialogRef<any>, @Inject(MD_DIALOG_DATA) public data: any) {
+    // this.game = data.game;
+  constructor(){
   }
 
   ngOnInit() {

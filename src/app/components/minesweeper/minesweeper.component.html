@@ -1,51 +1,102 @@
-<div style="height: 100%; width:100%;overflow: auto; display: flex;">
+
+
 <div class="game-board">
-  <app-row *ngFor="let row of game.board.getRows()" [row]="row" [globalParams]="{isSuperman: game.isSuperman}" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>
+<app-row *ngFor="let row of game.board.getRows()" [row]="row" [globalParams]="{isSuperman: game.isSuperman}" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>
 </div>
 
 <div class="info-board">
-  <md-card class="example-card">
-    <md-card-header>
-      <md-card-title>Game Info</md-card-title>
-      <!--<md-card-subtitle>Dog Breed</md-card-subtitle>-->
-    </md-card-header>
-    <md-card-content>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Game status:" disabled value="{{game.isGameOver ? 'Not Active' : 'Active'}}">
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Flags left:" disabled value="{{game.flags}}">
-      </md-input-container>
-      <md-card-header>
-        <!--<md-card-title>Game Info</md-card-title>-->
-        <md-card-subtitle>Board details:</md-card-subtitle>
-      </md-card-header>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Width:" disabled value="{{game.width}}">
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Height:" disabled value="{{game.height}}">
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput placeholder="Mines:" disabled value="{{game.mines}}">
-      </md-input-container>
-      <section class="section">
-        <md-checkbox [(ngModel)]="game.isSuperman">
-          Superman
-        </md-checkbox>
-      </section>
-      <section class="section">
-      <button md-button md-dialog-close class="close-button">Close Game</button>
-      </section>
-    </md-card-content>
-    <!--<md-card-actions>-->
-      <!--<button md-button>LIKE</button>-->
-      <!--<button md-button>SHARE</button>-->
-    <!--</md-card-actions>-->
+  <md-card style="height: 100%; margin-left: 5px;">
+  <md-card-header>
+  <md-card-title>Game Info</md-card-title>
+  <!--<md-card-subtitle>Dog Breed</md-card-subtitle>-->
+  </md-card-header>
+  <md-card-content>
+  <md-input-container class="full-width">
+  <input mdInput placeholder="Game status:" disabled value="{{game.isGameOver ? 'Not Active' : 'Active'}}">
+  </md-input-container>
+  <md-input-container class="full-width">
+  <input mdInput placeholder="Flags left:" disabled value="{{game.flags}}">
+  </md-input-container>
+  <md-card-header>
+  <!--<md-card-title>Game Info</md-card-title>-->
+  <md-card-subtitle>Board details:</md-card-subtitle>
+  </md-card-header>
+  <md-input-container class="full-width">
+  <input mdInput placeholder="Width:" disabled value="{{game.width}}">
+  </md-input-container>
+  <md-input-container class="full-width">
+  <input mdInput placeholder="Height:" disabled value="{{game.height}}">
+  </md-input-container>
+  <md-input-container class="full-width">
+  <input mdInput placeholder="Mines:" disabled value="{{game.mines}}">
+  </md-input-container>
+  <section class="section">
+  <md-checkbox [(ngModel)]="game.isSuperman">
+  Superman
+  </md-checkbox>
+  </section>
+  <section class="section">
+  <!--<button md-button md-dialog-close class="close-button">Close Game</button>-->
+  </section>
+  </md-card-content>
   </md-card>
+</div>
 
-</div>
-</div>
+
+
+<!--<div style="height: 100%; width:100%;overflow: auto; display: flex;">-->
+<!--<div class="game-board">-->
+  <!--<app-row *ngFor="let row of game.board.getRows()" [row]="row" [globalParams]="{isSuperman: game.isSuperman}" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>-->
+<!--</div>-->
+
+<!--<div class="info-board">-->
+  <!--<md-card class="example-card">-->
+    <!--<md-card-header>-->
+      <!--<md-card-title>Game Info</md-card-title>-->
+      <!--&lt;!&ndash;<md-card-subtitle>Dog Breed</md-card-subtitle>&ndash;&gt;-->
+    <!--</md-card-header>-->
+    <!--<md-card-content>-->
+      <!--<md-input-container class="full-width">-->
+        <!--<input mdInput placeholder="Game status:" disabled value="{{game.isGameOver ? 'Not Active' : 'Active'}}">-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="full-width">-->
+        <!--<input mdInput placeholder="Flags left:" disabled value="{{game.flags}}">-->
+      <!--</md-input-container>-->
+      <!--<md-card-header>-->
+        <!--&lt;!&ndash;<md-card-title>Game Info</md-card-title>&ndash;&gt;-->
+        <!--<md-card-subtitle>Board details:</md-card-subtitle>-->
+      <!--</md-card-header>-->
+      <!--<md-input-container class="full-width">-->
+        <!--<input mdInput placeholder="Width:" disabled value="{{game.width}}">-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="full-width">-->
+        <!--<input mdInput placeholder="Height:" disabled value="{{game.height}}">-->
+      <!--</md-input-container>-->
+      <!--<md-input-container class="full-width">-->
+        <!--<input mdInput placeholder="Mines:" disabled value="{{game.mines}}">-->
+      <!--</md-input-container>-->
+      <!--<section class="section">-->
+        <!--<md-checkbox [(ngModel)]="game.isSuperman">-->
+          <!--Superman-->
+        <!--</md-checkbox>-->
+      <!--</section>-->
+      <!--<section class="section">-->
+      <!--&lt;!&ndash;<button md-button md-dialog-close class="close-button">Close Game</button>&ndash;&gt;-->
+      <!--</section>-->
+    <!--</md-card-content>-->
+  <!--</md-card>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
 
 
 <!--<div class="board">-->

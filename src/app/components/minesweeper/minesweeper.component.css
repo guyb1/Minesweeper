@@ -1,26 +1,26 @@
 .game-board{
-  width: 60%;
+  width: 70%;
   height: 100%;
   overflow: auto;
+  float:left;
+  position: relative;
 
   /*display: table-cell;*/
   /*vertical-align: middle;*/
   /*text-align: center;*/
 
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer */
-  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
-  -webkit-user-select: none; /* Chrome, Safari, and Opera */
-  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+
 }
 
 .info-board{
+  display: inline-table;
   /*display: table-cell;*/
   /*vertical-align: middle;*/
-  min-width: 300px;
-  padding: 30px;
+  /*padding: 30px;*/
   position: relative;
   float: right;
+  width: 30%;
+  height: 100%;
   /*position: fixed;*/
   /*right: 0;*/
   /*top: 0;*/

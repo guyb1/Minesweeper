@@ -1,30 +1,39 @@
-<div class="upper-flags-left" *ngIf="game">
-  Flags left: {{game.flags}}
-</div>
-
-<form class="form">
-  <md-input-container class="full-width">
-    <input #width mdInput type="number" max="300" min="1" placeholder="Width" >
-  </md-input-container>
-  <md-input-container class="full-width">
-    <input #height mdInput type="number" max="300" min="1" placeholder="height" >
-  </md-input-container>
-  <md-input-container class="full-width">
-    <input #mines mdInput type="number" max="300" min="1" placeholder="Mines" >
-  </md-input-container>
-
-  <section class="section">
-    <md-checkbox #superman>
-      Superman
-    </md-checkbox>
-  </section>
-  <section class="section">
-    <button md-raised-button (click)="startClick(width.value, height.value, mines.value, superman._checked)" class="start-button">Start</button>
-  </section>
-</form>
-
-
-
-<!--<div class="game-container">-->
-<!--<app-minesweeper [game]="game"></app-minesweeper>-->
+<!--<div class="upper-flags-left" *ngIf="playMode">-->
+  <!--Flags left: {{game.flags}}-->
 <!--</div>-->
+
+<!--<form class="form">-->
+  <!--<md-input-container class="full-width">-->
+    <!--<input #width mdInput type="number" max="300" min="1" placeholder="Width" >-->
+  <!--</md-input-container>-->
+  <!--<md-input-container class="full-width">-->
+    <!--<input #height mdInput type="number" max="300" min="1" placeholder="height" >-->
+  <!--</md-input-container>-->
+  <!--<md-input-container class="full-width">-->
+    <!--<input #mines mdInput type="number" max="300" min="1" placeholder="Mines" >-->
+  <!--</md-input-container>-->
+
+  <!--<section class="section">-->
+    <!--<md-checkbox #superman>-->
+      <!--Superman-->
+    <!--</md-checkbox>-->
+  <!--</section>-->
+  <!--<section class="section">-->
+    <!--<button md-raised-button (click)="startClick(width.value, height.value, mines.value, superman._checked)" class="start-button">Start</button>-->
+  <!--</section>-->
+<!--</form>-->
+
+<section class="header-panel">
+<img src="../assets/hello_wix.png"/>
+<section class="section">
+  <button md-raised-button (click)="openConfig()" class="start-button" [disabled]="playMode">Settings</button>
+  <button md-raised-button (click)="stopClick()" class="start-button" [disabled]="!playMode">Stop</button>
+  <button md-raised-button (click)="startClick()" class="start-button">{{playMode? "Restart" : "Start"}}</button>
+</section>
+</section>
+<!--<app-config [game]="game"></app-config>-->
+
+
+<md-card class="game-container" *ngIf="playMode">
+  <app-minesweeper *ngIf="playMode" [game]="game"></app-minesweeper>
+</md-card>
