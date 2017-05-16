@@ -7,7 +7,8 @@ import {Queue} from "./Queue";
  * Created by Guy on 5/12/2017.
  */
 export class Game{
-  private isGameOver: boolean;
+  isSuperman: boolean;
+  isGameOver: boolean;
   width: number;
   height: number;
   mines: number;
@@ -15,13 +16,14 @@ export class Game{
   minesRevealed: number;
   board: GameBoard;
 
-  constructor(width: number, height: number, mines: number){
+  constructor(width: number, height: number, mines: number, superman: boolean){
     this.width = width;
     this.height = height;
     this. mines = mines;
     this.flags = mines;
     this.isGameOver = false;
     this.minesRevealed = 0;
+    this.isSuperman = superman;
     this.board = null;
   }
 
@@ -45,6 +47,9 @@ export class Game{
 
   public flagTile(tile: Tile) {
     if(this.isGameOver)
+      return;
+
+    if(tile.isRevealed)
       return;
 
     // Checks if we should flag the tile

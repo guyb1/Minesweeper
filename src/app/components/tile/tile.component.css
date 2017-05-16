@@ -2,7 +2,7 @@
   width: 40px;
   height: 40px;
   margin: 1px;
-  background-color: lightblue;
+  background-color: #6d3658;
   float:left;
   line-height: 40px;
   text-align: center;
@@ -11,12 +11,16 @@
 }
 
 .tile:hover{
-  background-color: lightgray;
+  background-color: #c36da2;
 }
 
-/*.backg{*/
-  /*background-color: red;*/
-/*}*/
+.revealed-tile{
+  background-color: #c36da2 !important;
+}
+
+.superman-tile{
+  background-color: #905278;
+}
 
 .mat-icon-button .mat-icon{
   line-height: 50px;
@@ -27,5 +31,5 @@
   font-family:"arial";
   font-weight: bold;
   font-size: 18px;
-  color: rgb(84, 84, 84);
+  color: #ffffff;
 }

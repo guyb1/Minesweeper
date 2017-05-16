@@ -9,7 +9,7 @@ import { MinesweeperComponent } from './components/minesweeper/minesweeper.compo
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MdButtonModule, MdIconModule, MdDialogModule, MdInputModule, MdListModule,
-  MdCheckboxModule
+  MdCheckboxModule, MdCardModule
 } from "@angular/material";
 
 @NgModule({
@@ -29,7 +29,8 @@ import {
     MdDialogModule,
     MdInputModule,
     MdListModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdCardModule
   ],
   providers: [],
   entryComponents: [MinesweeperComponent],

@@ -16,10 +16,6 @@
   padding-top: 100px;
 }
 
-.full-width {
-  width: 100%;
-}
-
 .section {
   display: flex;
   align-content: center;
@@ -29,4 +25,14 @@
 
 .start-button{
   margin:0 auto;
+}
+
+.upper-flags-left{
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-family: arial;
+  font-size:18px;
+  color:dimgray;
+  padding:5px;
 }

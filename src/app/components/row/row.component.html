@@ -1,5 +1,7 @@
 <div class="row">
   <app-tile *ngFor="let tile of row"
         [tile]="tile"
+        [globalParams]="globalParams"
         (click)="handleTileClick($event, tile)"></app-tile>
 </div>
+<!--[isSuperman]="isSuperman"-->

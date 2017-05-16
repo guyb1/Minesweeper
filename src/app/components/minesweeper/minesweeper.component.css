@@ -1,11 +1,11 @@
-.board{
-  width: 100%;
+.game-board{
+  width: 60%;
   height: 100%;
   overflow: auto;
 
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  /*display: table-cell;*/
+  /*vertical-align: middle;*/
+  /*text-align: center;*/
 
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer */
@@ -14,7 +14,29 @@
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
+.info-board{
+  /*display: table-cell;*/
+  /*vertical-align: middle;*/
+  min-width: 300px;
+  padding: 30px;
+  position: relative;
+  float: right;
+  /*position: fixed;*/
+  /*right: 0;*/
+  /*top: 0;*/
+}
 
 .row{
   display: flex;
+}
+
+.close-button{
+  margin:0 auto;
+}
+
+.section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
 }

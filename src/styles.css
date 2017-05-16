@@ -21,7 +21,15 @@ html, body{
 /*}*/
 
 app-minesweeper{
-  display: table;
-  height: 100%;
-  width:100%;
+  /*display: table;*/
+  /*height: 100%;*/
+  /*width:100%;*/
+}
+
+.full-width {
+  width: 100%;
+}
+
+md-dialog-container{
+  background-color: #e6efef !important;
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {Tile} from "../../models/Tile";
 
 @Component({
@@ -6,14 +6,29 @@ import {Tile} from "../../models/Tile";
   templateUrl: './row.component.html',
   styleUrls: ['./row.component.css']
 })
-export class RowComponent implements OnInit {
+export class RowComponent implements OnInit, OnDestroy {
   @Input() row: any;
-  @Output() tileClick: EventEmitter<Tile> = new EventEmitter();
-  @Output() tileShiftClick: EventEmitter<Tile> = new EventEmitter();
+  // @Input() isSuperman: boolean;
+  @Input() globalParams: any;
+  @Output() tileClick: EventEmitter<Tile>;
+  @Output() tileShiftClick: EventEmitter<Tile>;
 
-  constructor() { }
+  constructor() {
+    this.tileClick = new EventEmitter();
+    this.tileShiftClick= new EventEmitter();
+  }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.row = null;
+    // this.isSuperman = null;
+    this.globalParams = null;
+    this.tileClick.unsubscribe();
+    this.tileShiftClick.unsubscribe();
+    this.tileClick = null;
+    this.tileShiftClick = null;
   }
 
   handleTileClick(event, tile: Tile){

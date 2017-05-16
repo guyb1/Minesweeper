@@ -15,15 +15,15 @@
   <!--</button>-->
 <!--</div>-->
 
-<div class="tile">
+<div class="tile" [class.revealed-tile]="tile.isRevealed" [class.superman-tile]="globalParams.isSuperman">
   <div *ngIf="tile.isRevealed && !isMine()">
     {{tile.value()}}
   </div>
-  <div *ngIf="tile.isRevealed && isMine()">
-    <md-icon svgIcon="mine"></md-icon>
+  <div *ngIf="(tile.isRevealed || globalParams.isSuperman) && isMine() && !tile.isFlagged">
+    <md-icon svgIcon="mine" style="line-height: 50px;"></md-icon>
   </div>
   <div *ngIf="!tile.isRevealed && tile.isFlagged">
-    <md-icon svgIcon="flag"></md-icon>
+    <md-icon svgIcon="flag" style="line-height: 50px;"></md-icon>
   </div>
 </div>
 
