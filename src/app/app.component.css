@@ -1,11 +1,19 @@
 .header-panel{
-  width: 300px;
+  width: 80%;
+  text-align: center;
   margin:0 auto;
-  padding-top:100px;
+  padding-top:10%;
+}
+
+.buttons-panel{
+  width: 80%;
+  text-align: center;
+  margin:0 auto;
+  padding-top:0;
 }
 
 .header-panel img{
-  width: 300px;
+  width: 400px;
 }
 
 .game-container{
@@ -31,10 +39,13 @@
 }
 
 .section {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 50px;
+  display: block;
+  text-align: center;
+  height: 60px;
+}
+
+.section button{
+  margin:10px;
 }
 
 .start-button{

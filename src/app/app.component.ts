@@ -5,11 +5,39 @@ import {MinesweeperComponent} from "./components/minesweeper/minesweeper.compone
 import {MdIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ConfigComponent} from "./components/config/config.component";
+import {trigger, state, style, animate, transition} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [trigger('logoActive', [
+    state('active', style({
+      'width': '200px',
+      'padding-top':'0',
+      'margin-left':'0',
+      // backgroundColor: '#eee',
+      transform: 'scale(0.6)',
+    })),
+    state('inactive',   style({
+
+      // backgroundColor: '#cfd8dc',
+      transform: 'scale(1)'
+    })),
+    transition('active => inactive', animate('500ms ease-in')),
+    transition('inactive => active', animate('500ms ease-out'))
+  ]),
+    trigger('gameActive', [
+      state('active', style({
+        opacity:1
+      })),
+      state('inactive',   style({
+        opacity:0
+      })),
+      transition('active => inactive', animate('500ms')),
+      transition('inactive => active', animate('500ms'))
+    ])
+  ]
 })
 export class AppComponent {
   //title = 'app works!';
