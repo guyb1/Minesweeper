@@ -1,13 +1,28 @@
 <div md-dialog-title class="config-title">Game settings</div>
 <div md-dialog-content class="config-content">
-  <md-input-container class="full-width">
-    <input [(ngModel)]="game.width" mdInput type="number" max="300" min="1" placeholder="Width" >
+  <md-input-container class="full-width input-container">
+    <input [(ngModel)]="game.width" mdInput type="number" max="300" min="1" placeholder="Width" required>
+    <md-hint *ngIf="!isWidthValid()">
+        <span class="validation-message">
+            Must be between 1 and 300.
+        </span>
+    </md-hint>
   </md-input-container>
-  <md-input-container class="full-width">
-    <input [(ngModel)]="game.height" mdInput type="number" max="300" min="1" placeholder="height" >
+  <md-input-container class="full-width input-container">
+    <input [(ngModel)]="game.height" mdInput type="number" max="300" min="1" placeholder="height" required>
+    <md-hint *ngIf="!isHeightValid()">
+        <span class="validation-message">
+            Must be between 1 and 300.
+        </span>
+    </md-hint>
   </md-input-container>
-  <md-input-container class="full-width">
-    <input [(ngModel)]="game.mines" mdInput type="number" max="300" min="1" placeholder="Mines" >
+  <md-input-container class="full-width input-container">
+    <input [(ngModel)]="game.mines" mdInput type="number" max="300" min="1" placeholder="Mines" required>
+    <md-hint *ngIf="!isMinesNumValid()">
+        <span class="validation-message">
+            Must be between 1 and {{(game.width * game.height > 1) ? game.width * game.height : 1}}.
+        </span>
+    </md-hint>
   </md-input-container>
 
   <section class="section">
@@ -16,6 +31,6 @@
     </md-checkbox>
   </section>
   <div md-dialog-actions>
-    <button md-button md-dialog-close class="close-button">Close & Save</button>
+    <button md-button md-dialog-close class="close-button" [disabled]="!(isHeightValid() && isWidthValid() && isMinesNumValid())">Close & Save</button>
   </div>
 </div>

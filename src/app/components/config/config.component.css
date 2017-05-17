@@ -17,3 +17,11 @@
 .close-button{
   margin: 0 auto;
 }
+
+.input-container{
+  margin-bottom: 5px;
+}
+
+.validation-message{
+  color:#8a0000;
+}
