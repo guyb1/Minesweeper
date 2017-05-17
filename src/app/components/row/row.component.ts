@@ -8,7 +8,6 @@ import {Tile} from "../../models/Tile";
 })
 export class RowComponent implements OnInit, OnDestroy {
   @Input() row: any;
-  // @Input() isSuperman: boolean;
   @Input() globalParams: any;
   @Output() tileClick: EventEmitter<Tile>;
   @Output() tileShiftClick: EventEmitter<Tile>;
@@ -21,9 +20,9 @@ export class RowComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
+  // Kills component
   ngOnDestroy(): void {
     this.row = null;
-    // this.isSuperman = null;
     this.globalParams = null;
     this.tileClick.unsubscribe();
     this.tileShiftClick.unsubscribe();
@@ -31,12 +30,13 @@ export class RowComponent implements OnInit, OnDestroy {
     this.tileShiftClick = null;
   }
 
+  // Tile click handler
   handleTileClick(event, tile: Tile){
-    if(event.shiftKey) {
+    // Checks what kind of click occurred
+    if(event.shiftKey) { // Shift + Left click
       this.tileShiftClick.next(tile);
-    } else {
+    } else { // Left click
       this.tileClick.next(tile);
     }
   }
-
 }

@@ -9,11 +9,9 @@ import {Mine} from "../../models/Mine";
 })
 export class TileComponent implements OnInit, OnDestroy {
   @Input() tile: Tile;
-  // @Input() isSuperman: boolean;
   @Input() globalParams: any;
 
   constructor() {
-
   }
 
   ngOnInit() {
@@ -25,8 +23,6 @@ export class TileComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.tile = null;
-    // this.isSuperman = null;
     this.globalParams = null;
   }
-
 }

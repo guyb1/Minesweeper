@@ -1,46 +1,33 @@
 import {
-  Component, OnInit, Input, OnChanges, SimpleChanges, AfterViewChecked, AfterContentInit,
-  OnDestroy, Inject
+  Component, OnInit, Input
 } from '@angular/core';
 import {Game} from "../../models/Game";
-import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 
 @Component({
   selector: 'app-minesweeper',
   templateUrl: './minesweeper.component.html',
   styleUrls: ['./minesweeper.component.css']
 })
-export class MinesweeperComponent implements OnInit, OnChanges, AfterViewChecked, AfterContentInit  {
+export class MinesweeperComponent implements OnInit  {
   @Input() game: Game;
-  // public game: Game;
+  public viewPortItems: any;
 
-  // constructor(public dialogRef: MdDialogRef<any>, @Inject(MD_DIALOG_DATA) public data: any) {
-    // this.game = data.game;
-  constructor(){
-  }
+  constructor(){}
 
   ngOnInit() {
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    // start spinner
-  }
-
-  ngAfterViewChecked(): void {
-    // stop spinner
-
-  }
-
-  ngAfterContentInit(): void {
-    // alert('b');
-  }
-
+  // Left click handler
   handleTileClick(tile){
-    this.game.chooseTile(tile);
+    if(this.game.chooseTile(tile)){
+      alert('Game Over');
+    }
   }
 
+  // Shift + Left click handler
   handleTileShiftClick(tile){
-    this.game.flagTile(tile);
+    if(this.game.flagTile(tile)){
+      alert("You won!");
+    }
   }
 }

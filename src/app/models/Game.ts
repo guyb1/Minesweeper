@@ -1,11 +1,12 @@
+/**
+ * Created by Guy on 5/12/2017.
+ */
 import {GameBoard} from "./GameBoard";
 import {Tile} from "./Tile";
 import {Mine} from "./Mine";
 import {FreeTile} from "./FreeTile";
-import {Queue} from "./Queue";
-/**
- * Created by Guy on 5/12/2017.
- */
+import {Queue} from "../utils/Queue";
+
 export class Game{
   isSuperman: boolean;
   isGameOver: boolean;
@@ -21,41 +22,51 @@ export class Game{
     this.height = height;
     this. mines = mines;
     this.isSuperman = superman;
-
     this.board = null;
   }
 
+  //#region public methods
   public start() {
     this.isGameOver = false;
     this.minesRevealed = 0;
     this.flags = this.mines;
+
+    // Initialize board and mines
     this.board = new GameBoard(this.width, this.height, this.mines);
   }
 
   public stop(){
     this.isGameOver = true;
+    this.board = null;
   }
 
-  public chooseTile(tile: Tile){
+  // Returns if game is over
+  public chooseTile(tile: Tile): boolean {
     // Checks that the game is still on or the tile is not flagged
     if(this.isGameOver || tile.isFlagged)
       return;
 
+    // If its mine - game over.
     if(tile instanceof Mine){
       this.isGameOver = true;
       tile.isRevealed = true;
-      alert('Game Over');
+
+      return true;
     }
 
+    // Reveal tile and others if needed.
     this.revealAdjacentTiles(tile);
+
+    return false;
   }
 
-  public flagTile(tile: Tile) {
+  // Returns if won
+  public flagTile(tile: Tile): boolean {
     if(this.isGameOver)
-      return;
+      return false;
 
     if(tile.isRevealed)
-      return;
+      return false;
 
     // Checks if we should flag the tile
     if(tile.isFlagged){
@@ -81,41 +92,31 @@ export class Game{
           // Checks if this is the last mine
           if(this.minesRevealed == this.mines){
             this.isGameOver = true;
-            alert("You win!");
+            return true;
           }
         }
       }
     }
+
+    return false;
   }
 
-  // public revealAdjacentTiles(tile: Tile) {
-  //   if(!(tile instanceof FreeTile))
-  //     return;
-  //
-  //   if(tile.isFlagged)
-  //     return;
-  //
-  //   var freeTile: FreeTile = tile as FreeTile;
-  //   this.revealFreeTile(freeTile);
-  //
-  //   if(freeTile.minesAround == 0){
-  //     this.board.getNeighbors(freeTile).forEach(tile => {
-  //       if (!tile.isRevealed)
-  //         this.revealAdjacentTiles(tile);
-  //     });
-  //   }
-  // }
+  //#endregion
 
-  public revealAdjacentTiles(tile: Tile) {
+  //#region private methods
+  private revealAdjacentTiles(tile: Tile) {
+    // If its not FreeTile, there is nothing to reveal
     if(!(tile instanceof FreeTile))
       return;
 
+    // If its flagged, the user probably didnt want to click it...
     if(tile.isFlagged)
       return;
 
     var queue: Queue<FreeTile> = new Queue<FreeTile>();
     queue.push(tile);
 
+    // Avoiding recursive calls, call stack might crash in case of LARGE boards..
     while(!queue.isEmpty()){
       var currTile: FreeTile = queue.pop();
 
@@ -136,38 +137,10 @@ export class Game{
     }
   }
 
-  public revealFreeTile(tile: FreeTile){
+  private revealFreeTile(tile: FreeTile){
     tile.minesAround = this.board.getNumOfMinesAround(tile);
     tile.isRevealed = true;
   }
 
-
-
-
-
-
-
-  // public initialize(){
-  //   this.board = [];
-  //   var positions = [];
-  //
-  //   for(var i = 0; i < this.height; i++){
-  //     this.board.push([]);
-  //
-  //     for(var j = 0; j < this.width; j++){
-  //       var id = i * this.width + j;
-  //       this.board[i].push(new FreeTile(id, 0));
-  //       positions.push(id);
-  //     }
-  //   }
-  //
-  //   for(var counter = 0; counter < this.mines; counter++){
-  //     var idx = Math.floor(Math.random() * positions.length);
-  //     var j = positions[idx] % this.width;
-  //     var i = Math.floor(positions[idx] / this.width);
-  //
-  //     this.board[i][j] = new Mine(positions[idx]);
-  //     positions.splice(idx, 1);
-  //   }
-  // }
+  //#endregion
 }

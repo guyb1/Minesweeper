@@ -1,7 +1,7 @@
-import {ITile} from "./ITile";
 /**
  * Created by Guy on 5/12/2017.
  */
+import {ITile} from "./ITile";
 
 export abstract class Tile implements ITile{
   id: number;

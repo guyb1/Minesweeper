@@ -8,10 +8,10 @@ import {Position} from "./Position";
  */
 export class GameBoard{
   readonly Directions = [Directions.ne, Directions.n, Directions.nw, Directions.e, Directions.w, Directions.se, Directions.s, Directions.sw];
-  board: any;
-  width: number;
-  height: number;
-  mines: number;
+  private board: Tile[];
+  private width: number;
+  private height: number;
+  private mines: number;
 
   constructor(width: number, height: number, mines: number){
     this.width = width;
@@ -20,18 +20,23 @@ export class GameBoard{
     this.board = this.initBoard(width, height, mines);
   }
 
-  getRows(){
+  //#region public methods
+  public getRows(){
     return this.board;
   }
 
+  // Returns the number of mines around the tile
   public getNumOfMinesAround(tile:Tile){
     return this.getNeighbors(tile).filter(element => element instanceof Mine).length;
   }
 
+  // Returns all of the tile neighbors
   public getNeighbors(tile:Tile){
     return this.Directions.map(direction => this.getNeighbor(tile, direction)).filter(element => element);
   }
+  //#endregion
 
+  //#region private methods
   private hasNorth(pos: Position){
     return pos.y > 0;
   }
@@ -48,9 +53,11 @@ export class GameBoard{
     return pos.y < this.height - 1;
   }
 
+  // Returns tile neighbor for a specific direction
   private getNeighbor(tile: Tile, dir:Directions){
     var pos: Position = this.getPositionById(tile.id);
 
+    // Checks the chosen direction
     switch (dir){
       case Directions.ne:{
         if(this.hasNorth(pos) && this.hasEast(pos)){
@@ -119,6 +126,8 @@ export class GameBoard{
     var board = [];
     var ids = [];
 
+    // Initialize board with FreeTiles only
+    // Also create an array with possible mine positions
     for(var i = 0; i < height; i++){
       board.push([]);
 
@@ -129,6 +138,7 @@ export class GameBoard{
       }
     }
 
+    // Randomly choose from the positions array, and removes the chosen to avoid duplicates
     for(var counter = 0; counter < mines; counter++){
       var idx = Math.floor(Math.random() * ids.length);
       var pos:Position = this.getPositionById(ids[idx]);
@@ -143,4 +153,6 @@ export class GameBoard{
   private getPositionById(id: number) : Position{
     return new Position(id % this.width, Math.floor(id / this.width));
   }
+
+  //#endregion
 }

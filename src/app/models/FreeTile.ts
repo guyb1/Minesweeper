@@ -1,7 +1,7 @@
-import {Tile} from "./Tile";
 /**
  * Created by Guy on 5/12/2017.
  */
+import {Tile} from "./Tile";
 
 export class FreeTile extends Tile{
   public minesAround: number;

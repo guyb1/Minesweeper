@@ -12,6 +12,7 @@ import {
   MdButtonModule, MdIconModule, MdDialogModule, MdInputModule, MdListModule,
   MdCheckboxModule, MdCardModule, MdGridListModule
 } from "@angular/material";
+import {VirtualScrollModule} from "angular2-virtual-scroll";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {
     MdListModule,
     MdCheckboxModule,
     MdCardModule,
-    MdGridListModule
+    MdGridListModule,
+    VirtualScrollModule
   ],
   providers: [],
   entryComponents: [ConfigComponent],

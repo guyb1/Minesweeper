@@ -4,26 +4,20 @@
   overflow: auto;
   float:left;
   position: relative;
-
-  /*display: table-cell;*/
-  /*vertical-align: middle;*/
-  /*text-align: center;*/
-
-
 }
 
 .info-board{
   display: inline-table;
-  /*display: table-cell;*/
-  /*vertical-align: middle;*/
-  /*padding: 30px;*/
   position: relative;
   float: right;
   width: 30%;
   height: 100%;
-  /*position: fixed;*/
-  /*right: 0;*/
-  /*top: 0;*/
+
+}
+
+.info-board md-card{
+  height: 100%;
+  margin-left: 5px;
 }
 
 .row{
