@@ -61,3 +61,11 @@
   color:dimgray;
   padding:5px;
 }
+
+.bottom-text{
+  text-align: center;
+  font-family: arial;
+  font-size:14px;
+  color:#4c4c4c;
+  margin-top:100px;
+}

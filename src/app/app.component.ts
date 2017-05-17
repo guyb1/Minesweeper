@@ -32,6 +32,17 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
       })),
       transition('active => inactive', animate('500ms')),
       transition('inactive => active', animate('500ms'))
+    ]),
+    trigger('bottomTextActive', [
+      state('active', style({
+        opacity:1
+      })),
+      state('inactive',   style({
+        opacity:0,
+        'margin-top':0
+      })),
+      transition('active => inactive', animate('300ms')),
+      transition('inactive => active', animate('500ms'))
     ])
   ]
 })

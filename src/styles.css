@@ -9,6 +9,10 @@ html, body{
   overflow: hidden;
 }
 
+body{
+  min-width: 600px;
+}
+
 .full-width {
   width: 100%;
 }
