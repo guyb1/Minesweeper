@@ -1,0 +1,21 @@
+<div md-dialog-title class="config-title">Game settings</div>
+<div md-dialog-content class="config-content">
+  <md-input-container class="full-width">
+    <input [(ngModel)]="game.width" mdInput type="number" max="300" min="1" placeholder="Width" >
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input [(ngModel)]="game.height" mdInput type="number" max="300" min="1" placeholder="height" >
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input [(ngModel)]="game.mines" mdInput type="number" max="300" min="1" placeholder="Mines" >
+  </md-input-container>
+
+  <section class="section">
+    <md-checkbox [(ngModel)]="game.isSuperman">
+      Superman
+    </md-checkbox>
+  </section>
+  <div md-dialog-actions>
+    <button md-button md-dialog-close class="close-button">Close & Save</button>
+  </div>
+</div>
