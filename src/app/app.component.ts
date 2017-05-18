@@ -43,6 +43,15 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
       })),
       transition('active => inactive', animate('300ms')),
       transition('inactive => active', animate('500ms'))
+    ]),
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({opacity:0}),
+        animate(1000, style({opacity:1}))
+      ]),
+      transition(':leave', [
+        animate(500, style({opacity:0}))
+      ])
     ])
   ]
 })
@@ -72,7 +81,9 @@ export class AppComponent {
   }
 
   public startClick(){
-    this.game.start();
     this.playMode = true;
+
+    setTimeout(()=>{this.game.start();}, 500);
+
   }
 }

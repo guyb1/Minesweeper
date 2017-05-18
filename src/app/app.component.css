@@ -69,3 +69,10 @@
   color:#4c4c4c;
   margin-top:100px;
 }
+
+.creator-link{
+  font-family: arial;
+  font-size:14px;
+  color:#4c4c4c;
+  text-decoration: underline;
+}
