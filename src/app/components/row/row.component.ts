@@ -6,7 +6,7 @@ import {Tile} from "../tile/tile";
   templateUrl: './row.component.html',
   styleUrls: ['./row.component.css']
 })
-export class RowComponent implements OnInit, OnDestroy {
+export class RowComponent implements OnDestroy {
   @Input() row: any;
   @Input() globalParams: any;
   @Output() tileClick: EventEmitter<Tile>;
@@ -16,11 +16,7 @@ export class RowComponent implements OnInit, OnDestroy {
     this.tileClick = new EventEmitter();
     this.tileShiftClick= new EventEmitter();
   }
-
-  ngOnInit() {
-  }
-
-  // Kills component
+  
   ngOnDestroy(): void {
     this.row = null;
     this.globalParams = null;

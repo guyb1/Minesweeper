@@ -16,3 +16,10 @@ body{
 .full-width {
   width: 100%;
 }
+
+.checkbox-section{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
+}

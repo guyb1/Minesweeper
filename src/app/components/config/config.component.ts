@@ -7,16 +7,13 @@ import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.css']
 })
-export class ConfigComponent implements OnInit {
+export class ConfigComponent {
   readonly MAX_WIDTH: number = 300;
   readonly MAX_HEIGHT: number = 300;
   public game: Game;
 
   constructor(public dialogRef: MdDialogRef<ConfigComponent>, @Inject(MD_DIALOG_DATA) public data: any) {
     this.game = data.game;
-  }
-
-  ngOnInit() {
   }
 
   public isWidthValid(): boolean{

@@ -7,15 +7,11 @@ import {Mine} from "./mine";
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.css']
 })
-export class TileComponent implements OnInit, OnDestroy {
+export class TileComponent implements OnDestroy {
   @Input() tile: Tile;
   @Input() globalParams: any;
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  constructor() {}
 
   isMine(){
     return this.tile instanceof Mine;

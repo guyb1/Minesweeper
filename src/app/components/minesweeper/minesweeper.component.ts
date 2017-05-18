@@ -8,14 +8,11 @@ import {Game} from "./game";
   templateUrl: './minesweeper.component.html',
   styleUrls: ['./minesweeper.component.css']
 })
-export class MinesweeperComponent implements OnInit  {
+export class MinesweeperComponent {
   @Input() game: Game;
   public viewPortItems: any;
 
   constructor(){}
-
-  ngOnInit() {
-  }
 
   // Left click handler
   handleTileClick(tile){

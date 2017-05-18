@@ -1,5 +1,5 @@
 <div class="game-board">
-  <virtual-scroll [items]="game.board.getRows()" (update)="viewPortItems = $event" style="display: block; height: 100%; width:100%; overflow: auto;">
+  <virtual-scroll [items]="game.board.getRows()" (update)="viewPortItems = $event">
     <app-row *ngFor="let row of viewPortItems" [row]="row" [globalParams]="{isSuperman: game.isSuperman}" (tileClick)="handleTileClick($event)" (tileShiftClick)="handleTileShiftClick($event)"></app-row>
   </virtual-scroll>
 </div>
@@ -27,7 +27,7 @@
   <md-input-container class="full-width">
   <input mdInput placeholder="Mines:" disabled value="{{game.mines}}">
   </md-input-container>
-  <section class="section">
+  <section class="checkbox-section">
   <md-checkbox [(ngModel)]="game.isSuperman">
     Superman
   </md-checkbox>

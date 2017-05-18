@@ -28,9 +28,9 @@
   margin:0 auto;
 }
 
-.section {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 50px;
+virtual-scroll{
+  display: block;
+  height: 100%;
+  width:100%;
+  overflow: auto;
 }
