@@ -1,8 +1,8 @@
-import {Mine} from "./Mine";
-import {FreeTile} from "./FreeTile";
-import {Tile} from "./Tile";
-import {Directions} from "./Directions";
-import {Position} from "./Position";
+import {Mine} from "../tile/mine";
+import {FreeTile} from "../tile/free-tile";
+import {Tile} from "../tile/tile";
+import {Directions} from "./directions";
+import {Position} from "./position";
 /**
  * Created by Guy on 5/14/2017.
  */

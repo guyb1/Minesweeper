@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Game} from "./models/Game";
+import {Game} from "./components/minesweeper/game";
 import {MdDialog, MdDialogRef} from "@angular/material";
 import {MdIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";

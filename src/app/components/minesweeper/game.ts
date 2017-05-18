@@ -1,11 +1,11 @@
 /**
  * Created by Guy on 5/12/2017.
  */
-import {GameBoard} from "./GameBoard";
-import {Tile} from "./Tile";
-import {Mine} from "./Mine";
-import {FreeTile} from "./FreeTile";
-import {Queue} from "../utils/Queue";
+import {GameBoard} from "./game-board";
+import {Tile} from "../tile/tile";
+import {Mine} from "../tile/mine";
+import {FreeTile} from "../tile/free-tile";
+import {Queue} from "../../utils/Queue";
 
 export class Game{
   isSuperman: boolean;

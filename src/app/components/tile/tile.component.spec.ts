@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TileComponent } from './tile.component';
-import {FreeTile} from "../../models/FreeTile";
+import {FreeTile} from "./free-tile";
 import {MdIconModule} from "@angular/material";
-import {Mine} from "../../models/Mine";
+import {Mine} from "./mine";
 
 describe('TileComponent', () => {
   let component: TileComponent;

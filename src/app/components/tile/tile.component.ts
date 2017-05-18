@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {Tile} from "../../models/Tile";
-import {Mine} from "../../models/Mine";
+import {Tile} from "./tile";
+import {Mine} from "./mine";
 
 @Component({
   selector: 'app-tile',

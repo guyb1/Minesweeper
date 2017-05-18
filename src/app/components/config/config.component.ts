@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Inject} from '@angular/core';
-import {Game} from "../../models/Game";
+import {Game} from "../minesweeper/game";
 import {MdDialogRef, MD_DIALOG_DATA} from "@angular/material";
 
 @Component({

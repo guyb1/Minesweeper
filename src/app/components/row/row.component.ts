@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
-import {Tile} from "../../models/Tile";
+import {Tile} from "../tile/tile";
 
 @Component({
   selector: 'app-row',

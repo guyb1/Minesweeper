@@ -1,7 +1,7 @@
 import {
   Component, OnInit, Input
 } from '@angular/core';
-import {Game} from "../../models/Game";
+import {Game} from "./game";
 
 @Component({
   selector: 'app-minesweeper',
