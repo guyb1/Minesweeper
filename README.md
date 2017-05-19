@@ -19,4 +19,4 @@ Added superman mode (cheat mode). Check superman checkbox (before or during the 
 
 ## Tests
 Tests are written with Karma, in files *.spec.ts.
-Running the tests are done using Angular CLI with command `ng test`
+* Running the tests are done using Angular CLI with command `ng test`
