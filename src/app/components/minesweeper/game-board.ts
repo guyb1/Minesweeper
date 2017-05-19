@@ -3,6 +3,7 @@ import {FreeTile} from "../tile/free-tile";
 import {Tile} from "../tile/tile";
 import {Directions} from "./directions";
 import {Position} from "./position";
+import {ITile} from "../tile/itile";
 /**
  * Created by Guy on 5/14/2017.
  */
@@ -126,6 +127,15 @@ export class GameBoard{
     var board = [];
     var ids = [];
 
+    var placeMinesFirst = false;
+    var remainderNum = mines;
+
+    // Checks if we should place first the mines or the tile
+    if(width * height / 2 < mines){
+      placeMinesFirst = true;
+      remainderNum = width * height - mines;
+    }
+
     // Initialize board with FreeTiles only
     // Also create an array with possible mine positions
     for(var i = 0; i < height; i++){
@@ -133,17 +143,34 @@ export class GameBoard{
 
       for(var j = 0; j < width; j++){
         var id = i * width + j;
-        board[i].push(new FreeTile(id, 0));
+
+        var tile :ITile;
+
+        if(placeMinesFirst){
+          tile = new Mine(id);
+        } else{
+          tile = new FreeTile(id, 0);
+        }
+
+        board[i].push(tile);
         ids.push(id);
       }
     }
 
     // Randomly choose from the positions array, and removes the chosen to avoid duplicates
-    for(var counter = 0; counter < mines; counter++){
+    for(var counter = 0; counter < remainderNum; counter++){
       var idx = Math.floor(Math.random() * ids.length);
       var pos:Position = this.getPositionById(ids[idx]);
 
-      board[pos.y][pos.x] = new Mine(ids[idx]);
+      var tile :ITile;
+
+      if(placeMinesFirst){
+        tile = new FreeTile(ids[idx], 0);
+      } else{
+        tile = new Mine(ids[idx]);
+      }
+
+      board[pos.y][pos.x] = tile;
       ids.splice(idx, 1);
     }
 

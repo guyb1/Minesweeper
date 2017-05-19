@@ -10,25 +10,25 @@
   </md-card-header>
   <md-card-content>
   <md-input-container class="full-width">
-  <input class="game-status" mdInput placeholder="Game status:" disabled value="{{game.isGameOver ? 'Not Active' : 'Active'}}">
+  <input class="game-status" mdInput placeholder="Game status:" disabled value="{{game.isGameOver ? 'Inactive' : 'Active'}}">
   </md-input-container>
   <md-input-container class="full-width">
-  <input mdInput placeholder="Flags left:" disabled value="{{game.flags}}">
+  <input class="flags-left" mdInput placeholder="Flags left:" disabled value="{{game.flags}}">
   </md-input-container>
   <md-card-header>
   <md-card-subtitle>Board details:</md-card-subtitle>
   </md-card-header>
   <md-input-container class="full-width">
-  <input mdInput placeholder="Width:" disabled value="{{game.width}}">
+  <input class="board-width" mdInput placeholder="Width:" disabled value="{{game.width}}">
   </md-input-container>
   <md-input-container class="full-width">
-  <input mdInput placeholder="Height:" disabled value="{{game.height}}">
+  <input class="board-height" mdInput placeholder="Height:" disabled value="{{game.height}}">
   </md-input-container>
   <md-input-container class="full-width">
-  <input mdInput placeholder="Mines:" disabled value="{{game.mines}}">
+  <input class="mines" mdInput placeholder="Mines:" disabled value="{{game.mines}}">
   </md-input-container>
   <section class="checkbox-section">
-  <md-checkbox [(ngModel)]="game.isSuperman">
+  <md-checkbox class="superman" [(ngModel)]="game.isSuperman">
     Superman
   </md-checkbox>
   </section>
