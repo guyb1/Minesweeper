@@ -19,8 +19,7 @@ describe('MinesweeperComponent', () => {
   let flagsInput: HTMLInputElement;
   let widthInput: HTMLInputElement;
   let heightInput: HTMLInputElement;
-  let minesInput: HTMLInputElement;
-  let supermanInput: HTMLInputElement;
+  let minesInput: HTMLInputElement
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,12 +28,6 @@ describe('MinesweeperComponent', () => {
     })
     .compileComponents();
   }));
-
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(MinesweeperComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
 
   it('should be created', () => {
     fixture = TestBed.createComponent(MinesweeperComponent);

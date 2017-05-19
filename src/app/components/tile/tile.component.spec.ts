@@ -17,11 +17,6 @@ describe('TileComponent', () => {
     .compileComponents();
   }));
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(TileComponent);
-  //   component = fixture.componentInstance;
-  // });
-
   it('should be created', () => {
     fixture = TestBed.createComponent(TileComponent);
     component = fixture.componentInstance;

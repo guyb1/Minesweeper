@@ -3,7 +3,7 @@
   <md-input-container class="full-width input-container">
     <input [(ngModel)]="game.width" mdInput type="number" max="300" min="1" placeholder="Width" required>
     <md-hint *ngIf="!isWidthValid()">
-        <span class="validation-message">
+        <span class="validation-message width-prop">
             Must be between 1 and 300.
         </span>
     </md-hint>
@@ -11,15 +11,15 @@
   <md-input-container class="full-width input-container">
     <input [(ngModel)]="game.height" mdInput type="number" max="300" min="1" placeholder="height" required>
     <md-hint *ngIf="!isHeightValid()">
-        <span class="validation-message">
+        <span class="validation-message height-prop">
             Must be between 1 and 300.
         </span>
     </md-hint>
   </md-input-container>
   <md-input-container class="full-width input-container">
     <input [(ngModel)]="game.mines" mdInput type="number" max="300" min="1" placeholder="Mines" required>
-    <md-hint *ngIf="!isMinesNumValid()">
-        <span class="validation-message">
+    <md-hint *ngIf="!isMinesNumValid() && isWidthValid() && isHeightValid()">
+        <span class="validation-message mine-prop">
             Must be between 1 and {{(game.width * game.height > 1) ? game.width * game.height : 1}}.
         </span>
     </md-hint>

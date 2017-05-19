@@ -19,12 +19,6 @@ describe('RowComponent', () => {
     .compileComponents();
   }));
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(RowComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
-
   it('should be created', () => {
     fixture = TestBed.createComponent(RowComponent);
     component = fixture.componentInstance;
