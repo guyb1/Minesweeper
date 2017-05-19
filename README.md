@@ -15,8 +15,8 @@ My implementation for Wix [home assignment](https://github.com/wix/minesweeper),
 8.	If all mines are flagged correctly, you win.
 
 ### Superman mode
-Added superman mode (cheat mode). Check superman checkbox (before or during the game) to reveal all mines.
+Added superman mode. Check superman checkbox (before or during the game) to reveal all mines.
 
 ## Tests
 Tests are written with Karma, in files *.spec.ts.
-* Running the tests are done using Angular CLI with command `ng test`
+* Running the tests are done using Angular CLI with command `ng test`.
