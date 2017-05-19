@@ -1,28 +1,22 @@
 # WixMinesweeper
+My implementation for Wix [home assignment](https://github.com/wix/minesweeper), made with angular 2.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+### Rules of the game:
+1.	Board should be of configurable width, height and mines number.
+2.	The board should support width and height of up to 300 (300x300 cells),
+3.	Should display an indication of the number of remaining flags above the board.
+4.	Click on cell reveals the value underneath it:
+    * If it is a mine, you lose.
+    * Otherwise, display the number of mines around the cell (or empty if there are no mines around)
+    * If there are no mines around the cell, reveal all cells around it and and all cells around any adjacent empty cell.
+5.	Shift button + Left Mouse Click puts or removes a flag on that cell. (and updates the number of remaining flags)
+6.	Display alert if player tries to add a flag but he does not have any remaining flags.
+7.	A flagged cell cannot be revealed (click does nothing) until the flag is removed.
+8.	If all mines are flagged correctly, you win.
 
-## Development server
+### Superman mode
+Added superman mode (cheat mode). Check superman checkbox (before or during the game) to reveal all mines.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Tests
+Tests are written with Karma, in files *.spec.ts.
+Running the tests are done using Angular CLI with command `ng test`
