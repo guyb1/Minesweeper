@@ -15,7 +15,11 @@
 }
 
 .revealed-tile{
-  background-color: #c36da2 !important;
+  background-color: #c36da2;
+}
+
+.flagged-tile{
+  background-color: #841d1d !important;
 }
 
 .superman-tile{

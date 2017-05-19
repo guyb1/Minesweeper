@@ -23,8 +23,8 @@ describe('TileComponent', () => {
   // });
 
   it('should be created', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,1);
     component.globalParams = {};
     fixture.detectChanges();
@@ -32,8 +32,8 @@ describe('TileComponent', () => {
   });
 
   it('should be mine', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new Mine(1);
     component.globalParams = {};
     fixture.detectChanges();
@@ -41,8 +41,8 @@ describe('TileComponent', () => {
   });
 
   it('should not be mine', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,1);
     component.globalParams = {};
     fixture.detectChanges();
@@ -50,8 +50,8 @@ describe('TileComponent', () => {
   });
 
   it('should be revealed', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,20);
     component.tile.isRevealed = true;
     component.globalParams = {};
@@ -61,8 +61,8 @@ describe('TileComponent', () => {
   });
 
   it('should be revealed -> revealed, superman mode off', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,3);
     component.tile.isRevealed = true;
     component.globalParams = {isSuperman : false};
@@ -71,11 +71,22 @@ describe('TileComponent', () => {
     expect(compiled.querySelector('.tile').textContent).toContain('3');
   });
 
-  it('should be empty -> not revealed, superman mode on', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+  it('should be revealed -> revealed, superman mode on', () => {
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,3);
-    component.tile.isRevealed = false
+    component.tile.isRevealed = true;
+    component.globalParams = {isSuperman : true};
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.tile').textContent).toContain('3');
+  });
+
+  it('should be empty -> not revealed, superman mode on', () => {
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
+    component.tile = new FreeTile(1,3);
+    component.tile.isRevealed = false;
     component.globalParams = {isSuperman : true};
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
@@ -83,21 +94,22 @@ describe('TileComponent', () => {
   });
 
   it('should not be in superman mode', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1,3);
-    component.tile.isRevealed = false
+    component.tile.isRevealed = false;
     component.globalParams = {isSuperman : false};
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.tile.superman-tile')).toBeNull();
   });
 
+  // Shouldn't happen
   it('should be revealed mine', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new Mine(1);
-    component.tile.isRevealed = true
+    component.tile.isRevealed = true;
     component.globalParams = {isSuperman : false};
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
@@ -106,8 +118,8 @@ describe('TileComponent', () => {
   });
 
   it('should be revealed mine -> superman mode', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new Mine(1);
     component.tile.isRevealed = false;
     component.globalParams = {isSuperman : true};
@@ -118,8 +130,8 @@ describe('TileComponent', () => {
   });
 
   it('should be flagged -> FreeTile', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1, 1);
     component.tile.isRevealed = false;
     component.tile.isFlagged = true;
@@ -131,8 +143,8 @@ describe('TileComponent', () => {
   });
 
   it('should be flagged -> FreeTile with superman mode', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1, 1);
     component.tile.isRevealed = false;
     component.tile.isFlagged = true;
@@ -144,8 +156,8 @@ describe('TileComponent', () => {
   });
 
   it('should be flagged -> Mine', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new Mine(1);
     component.tile.isRevealed = false;
     component.tile.isFlagged = true;
@@ -157,8 +169,8 @@ describe('TileComponent', () => {
   });
 
   it('should be flagged -> Mine with superman mode', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new Mine(1);
     component.tile.isRevealed = false;
     component.tile.isFlagged = true;
@@ -166,13 +178,13 @@ describe('TileComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const nodeAttributes = compiled.querySelector('md-icon').attributes as NamedNodeMap;
-    expect(nodeAttributes.getNamedItem('svgIcon').value).toBe('flag');
+    expect(nodeAttributes.getNamedItem('svgIcon').value).toBe('mine');
   });
 
   // Shouldn't happen
   it('should not be flagged -> revealed FreeTile', () => {
-    const fixture = TestBed.createComponent(TileComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
     component.tile = new FreeTile(1, 1);
     component.tile.isRevealed = true;
     component.tile.isFlagged = true;
@@ -180,5 +192,18 @@ describe('TileComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.tile').textContent).toContain('1');
+  });
+
+  it('should be flagged and mined -> flagged, not revealed mine, superman mode', () => {
+    fixture = TestBed.createComponent(TileComponent);
+    component = fixture.componentInstance;
+    component.tile = new Mine(1);
+    component.tile.isRevealed = false;
+    component.tile.isFlagged = true;
+    component.globalParams = {isSuperman : true};
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const nodeAttributes = compiled.querySelector('.tile.flagged-tile.superman-tile md-icon').attributes as NamedNodeMap;
+    expect(nodeAttributes.getNamedItem('svgIcon').value).toBe('mine');
   });
 });

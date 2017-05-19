@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, Input
+  Component, Input
 } from '@angular/core';
 import {Game} from "./game";
 
