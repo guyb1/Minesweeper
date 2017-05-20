@@ -65,10 +65,10 @@ export class AppComponent {
     this.game = new Game(10, 10, 5, false); // default settings
     iconRegistry.addSvgIcon(
       'mine',
-      sanitizer.bypassSecurityTrustResourceUrl('./assets/emoticon-poop.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/emoticon-poop.svg'));
     iconRegistry.addSvgIcon(
       'flag',
-      sanitizer.bypassSecurityTrustResourceUrl('./assets/bomb.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/bomb.svg'));
   }
 
   public openConfig(){
