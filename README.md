@@ -1,6 +1,6 @@
 # WixMinesweeper
 My implementation for [Wix home assignment](https://github.com/wix/minesweeper), made with angular 2.
-* You can find a working demo [here](https://guyb1.github.io/Minesweeper)
+* You can find a working demo [here](https://guyb1.github.io/Minesweeper).
 
 ### Rules of the game:
 1.	Board should be of configurable width, height and mines number.
